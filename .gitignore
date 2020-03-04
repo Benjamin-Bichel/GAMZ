@@ -5,7 +5,7 @@
 #Take out output
 
 *.iml
-
+.idea/*
 
 # User-specific stuff
 .idea/**/workspace.xml
