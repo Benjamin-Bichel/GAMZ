@@ -1,12 +1,10 @@
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table
 @Entity
 public class User {
     @Id
+    @GeneratedValue()
     private int id;
     @Index()
     private String name;

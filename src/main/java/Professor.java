@@ -8,16 +8,11 @@ public class Professor extends User {
     private Faculty faculty;
     //Multiple indexes
     @OneToMany
-    private List<Project> activeProjectsList;
+    private List<Project> projectListrojectsList;
     @OneToMany
     private List<Feild> seekingFeilds;
-    @OneToMany
-    private List<Project> proposedProjects;
     @ManyToMany
     private List<Feild> activeFeilds;
-    @ManyToMany
-    private List<Feild> constantFeilds;
 
-
-
+    private boolean active;
 }
