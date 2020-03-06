@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan("DataModel")
+@ComponentScan({"DataModel", "Controllers"})
 public class App {
 
     public static void main(String[] args) {
