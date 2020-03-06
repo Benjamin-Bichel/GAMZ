@@ -1,0 +1,33 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>GRAD APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+</body>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+</div>
+
+<h2>Graduate Management System</h2>
+
+<form action="#" th:action="@{/templates/login.html}" th:object="${DataModel.User}" method="post">
+    <p>Select Role <input type="text" th:field="${DataModel.User.role}" /></p>
+
+
+    <select>
+        <option value="Admin">Admin</option>
+        <option value="Student">Student</option>
+        <option value="Prof">Prof</option>
+    </select>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>-->
