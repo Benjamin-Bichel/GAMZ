@@ -3,7 +3,8 @@
 #Unknown if anyothers are needed atm
 
 #Take out output
-
+lib/*
+lib
 *.iml
 .idea/*
 
