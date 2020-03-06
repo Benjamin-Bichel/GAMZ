@@ -13,7 +13,31 @@ public class Professor extends User {
     private List<Feild> seekingFeilds;
     @ManyToMany
     private List<Feild> activeFeilds;
-    
+
     private boolean active;
+    private String research;
+
+    public Professor() {
+        super();
+    }
+
+    public Professor(String name) {
+        super(name);
+    }
+
+    public Professor(String name, String research) {
+        super(name);
+        this.research = research;
+
+    }
+    public String getResearch() {
+        return research;
+    }
+
+    public void setResearch(String research) {
+        this.research = research;
+    }
+
+
 
 }
