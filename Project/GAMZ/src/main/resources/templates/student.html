@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://thymeleaf.org">
+
+<head>
+    <title>GRAD APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h2>Graduate Application Form</h2>
+<h3>Applicant Profile</h3>
+
+
+<form action="#" th:action="@{/student}"  method="post">
+
+    <!--<p>First Name: <input type="text" th:field="${name}" /></p> -->
+
+    <p>Enter Name:<p>
+    <p><input type="text" /></p>
+    <p>Enter Email Address: <input type="text" /></p>
+    <p>Enter Professor of choice: <input type="text" /></p>
+    <p>Enter Research field: <input type="text" /></p>
+
+    <p>Upload CV/Resume: <input type="file" id="resumeFile"> <p>
+    <p>Upload Audit: <input type="file" id="auditFile"> <p>
+    <p><input type="submit" value="Submit" />
+        <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

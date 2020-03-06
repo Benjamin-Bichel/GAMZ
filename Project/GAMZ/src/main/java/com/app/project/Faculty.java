@@ -1,3 +1,5 @@
+package com.app.project;
+
 import javax.persistence.*;
 import java.util.List;
 

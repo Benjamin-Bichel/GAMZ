@@ -1,10 +1,11 @@
+package com.app.project;
+
 import java.util.List;
-import java.awt.*;
 import javax.persistence.*;
 
 @Table
 @Entity
-public class Applicant extends User{
+public class Applicant extends User {
 
     private  String email;
     private String summary;
@@ -23,7 +24,6 @@ public class Applicant extends User{
     private boolean finalRecomendation;
     @ManyToOne
     private Project project;
-
-    private byte[] deploma;
+    private byte[] diploma;
 
 }

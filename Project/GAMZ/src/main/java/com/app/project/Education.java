@@ -1,3 +1,5 @@
+package com.app.project;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
