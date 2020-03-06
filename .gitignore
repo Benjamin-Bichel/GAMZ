@@ -2,6 +2,8 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 #Unknown if anyothers are needed atm
 
+target/*.jar
+
 #Take out output
 lib/*
 lib
