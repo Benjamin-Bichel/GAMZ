@@ -4,12 +4,17 @@ SYSC 4806 Project
 Graduate Management System
 ---------------------
 
+Project Description:
+--------------------------------
+A web application to manage graduate applications. Students are able to submit applications with relevant information. 
+Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before 
+forwarding them to the Professors for recommendations. The adiministrator can then make a final decision on the applicatons.
 
 Group Members:
 
-- Benjamin Bichel
-- Thomas Carriere
-- Fatima Hashi
+- Benjamin Bichel 100998411
+- Thomas Carriere 100947281
+- Fatima Hashi 
 
 
 Milestone 1 - Current Prototype:
@@ -20,7 +25,7 @@ The current app is designed with a single view that gathers information of an ap
 Instructions:
 ------------------------------
 
-(insert instructions on how to run)
+
 
 
 Milestone 2 - Next SCRUM Deliverables
