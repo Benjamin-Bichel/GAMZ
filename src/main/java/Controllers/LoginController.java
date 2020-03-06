@@ -21,13 +21,10 @@ public class LoginController {
     @GetMapping
     public String applicationForm(Model model) {
         model.addAttribute("user", new User());
-        return "student";
+        return "login";
     }
 
-    @PostMapping
-    public String applicationSubmit(@ModelAttribute User user) {
-        return "result";
-    }
+
 
 }
 
