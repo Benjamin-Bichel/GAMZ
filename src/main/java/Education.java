@@ -9,7 +9,7 @@ public class Education {
     @Id
     private int id;
     private boolean graduated;
-    private Date yaer;
+    private Date year;
     private String institution;
     private String program;
     private int grade;

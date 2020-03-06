@@ -16,5 +16,8 @@ public class Project {
     @OneToMany
     private List<Feild> projectFeildsRequired;
 
+    private boolean activeProject;
+    private boolean approval;
+
 
 }

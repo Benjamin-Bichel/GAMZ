@@ -1,7 +1,7 @@
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Table
-@Entity
-public class ProfessorRecomendation {
+enum ProfessorRecomendation {
+    NOT_RECOMMENDED,
+    RECOMEND_NO_SUPERVISION,
+    RECOMEND_NO_FUND,
+    RECOMEND_FUND
 }
