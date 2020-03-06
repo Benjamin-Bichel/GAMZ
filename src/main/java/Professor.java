@@ -13,6 +13,7 @@ public class Professor extends User {
     private List<Feild> seekingFeilds;
     @ManyToMany
     private List<Feild> activeFeilds;
+    
     private boolean active;
 
 }
