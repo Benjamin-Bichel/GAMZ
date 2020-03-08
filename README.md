@@ -14,16 +14,13 @@ Group Members:
 
 - Benjamin Bichel 100998411
 - Thomas Carriere 100947281
-- Fatima Hashi 
+- Fatima Hashi 101041794
 
 
 Milestone 1 - Current Prototype:
 ------------------------------
 
 The current app is designed with a single view that gathers information of an applicant. 
-
-Instructions:
-------------------------------
 
 
 
