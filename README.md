@@ -26,6 +26,11 @@ Milestone 2 - Current Prototype:
 - User shall submit an application
 - Admin shall filter through applications
 
+Instructions
+-----------------------------
+1. Run App.java 
+2.  
+3.
 
 
 Milestone 3 - Next SCRUM Deliverables
