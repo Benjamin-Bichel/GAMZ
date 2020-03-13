@@ -33,6 +33,7 @@ Milestone 3 - Next SCRUM Deliverables
 The next deliverable will implement:
  
 
+Add Database Schemas below:
 
 
 
