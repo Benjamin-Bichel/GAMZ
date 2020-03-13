@@ -1,4 +1,4 @@
-package DataModel;
+package Application.DataModel;
 
 import javax.persistence.*;
 import java.util.List;

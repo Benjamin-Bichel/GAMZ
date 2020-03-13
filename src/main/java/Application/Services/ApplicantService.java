@@ -1,8 +1,8 @@
-package Services;
+package Application.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import DataModel.*;
+import Application.DataModel.*;
 
 import java.util.List;
 

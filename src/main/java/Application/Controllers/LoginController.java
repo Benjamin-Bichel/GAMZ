@@ -1,7 +1,7 @@
-package Controllers;
+package Application.Controllers;
 
 
-import DataModel.*;
+import Application.DataModel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

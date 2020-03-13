@@ -6,13 +6,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.persistence.Entity;
-
 
 @SpringBootApplication
-@ComponentScan({"Controllers", "Services"})
-@EnableJpaRepositories("DataModel")
-@EntityScan("DataModel")
+@ComponentScan({"Application.Controllers", "Application.Services"})
+@EnableJpaRepositories("Application.DataModel")
+@EntityScan("Application/DataModel")
 public class App {
 
     public static void main(String[] args) {
