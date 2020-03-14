@@ -1,4 +1,4 @@
-package DataModel;
+package Application.DataModel;
 
 public class DataManager {
 
