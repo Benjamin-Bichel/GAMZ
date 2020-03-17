@@ -17,15 +17,15 @@ public class Applicant extends User {
     @ElementCollection
     private List<String> employmentHistory;
     @ElementCollection
-    private List<String> volenteerHistory;
+    private List<String> volunteerHistory;
     private String otherInformation;
-    private boolean adminAproval;
-    private ProfessorRecomendation recomendation;
-    private boolean finalRecomendation;
+    private boolean adminApproval;
+    private ProfessorRecommendation recommendation;
+    private boolean finalRecommendation;
     @ManyToOne
     private Project project;
+    private byte[] diploma;
 
-    private byte[] deploma;
 
     public String getEmail() {
         return email;
@@ -59,28 +59,28 @@ public class Applicant extends User {
         this.education = education;
     }
 
-    public boolean isAdminAproval() {
-        return adminAproval;
+    public boolean isAdminApproval() {
+        return adminApproval;
     }
 
-    public void setAdminAproval(boolean adminAproval) {
-        this.adminAproval = adminAproval;
+    public void setAdminApproval(boolean adminApproval) {
+        this.adminApproval = adminApproval;
     }
 
-    public boolean isFinalRecomendation() {
-        return finalRecomendation;
+    public boolean isFinalRecommendation() {
+        return finalRecommendation;
     }
 
-    public void setFinalRecomendation(boolean finalRecomendation) {
-        this.finalRecomendation = finalRecomendation;
+    public void setFinalRecommendation(boolean finalRecommendation) {
+        this.finalRecommendation = finalRecommendation;
     }
 
-    public ProfessorRecomendation getRecomendation() {
-        return recomendation;
+    public ProfessorRecommendation getRecommendation() {
+        return recommendation;
     }
 
-    public void setRecomendation(ProfessorRecomendation recomendation) {
-        this.recomendation = recomendation;
+    public void setRecommendation(ProfessorRecommendation recommendation) {
+        this.recommendation = recommendation;
     }
 
     public String getOtherInformation() {
@@ -91,12 +91,12 @@ public class Applicant extends User {
         this.otherInformation = otherInformation;
     }
 
-    public byte[] getDeploma() {
-        return deploma;
+    public byte[] getDiploma() {
+        return diploma;
     }
 
-    public void setDeploma(byte[] deploma) {
-        this.deploma = deploma;
+    public void setDiploma(byte[] diploma) {
+        this.diploma = diploma;
     }
 
     public List<Skills> getSkillsList() {
@@ -115,11 +115,11 @@ public class Applicant extends User {
         this.employmentHistory = employmentHistory;
     }
 
-    public List<String> getVolenteerHistory() {
-        return volenteerHistory;
+    public List<String> getVolunteerHistory() {
+        return volunteerHistory;
     }
 
-    public void setVolenteerHistory(List<String> volenteerHistory) {
-        this.volenteerHistory = volenteerHistory;
+    public void setVolunteerHistory(List<String> volunteerHistory) {
+        this.volunteerHistory = volunteerHistory;
     }
 }

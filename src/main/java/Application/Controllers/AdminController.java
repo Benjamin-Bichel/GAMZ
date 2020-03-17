@@ -18,10 +18,7 @@ public class AdminController {
     @GetMapping
     public String applicantForm(Model model, @ModelAttribute Applicant applicant){
         model.addAttribute("applicant", new Applicant());
-        return "student";
+        return "applicant";
     }
-
-
-
 
 }
