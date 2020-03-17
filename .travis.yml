@@ -1,7 +1,6 @@
   language: java
   deploy:
     provider: heroku
-    api-key:
-      secure: $HEROKU_API_KEY
+    api-key: 427fbd88-49ab-4148-8bd0-953f697f46d8
     app: gamz4806
 
