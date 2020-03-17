@@ -1,6 +1,6 @@
 package Application.Controllers;
 
-import Application.DataModel.Applicant;
+import Application.DataModel.Admin;
 import Application.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +16,9 @@ public class AdminController {
     private ApplicantService service;
 
     @GetMapping
-    public String applicantForm(Model model, @ModelAttribute Applicant applicant){
-        model.addAttribute("applicant", new Applicant());
-        return "applicant";
+    public String adminForm(Model model, @ModelAttribute Admin admin){
+        model.addAttribute("admin", new Admin());
+        return "admin";
     }
 
 }

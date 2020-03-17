@@ -23,6 +23,7 @@ public class ApplicantController {
 
     @PostMapping("/applicant")
     public String applicationResult(Model model, @ModelAttribute Applicant applicant) {
+
         return "result";
     }
 }
