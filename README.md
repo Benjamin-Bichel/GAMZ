@@ -32,6 +32,7 @@ Instructions
 2.  
 3.
 
+Link to Heroku app --> https://gamz.herokuapp.com/
 
 Milestone 3 - Next SCRUM Deliverables
 -----------------------------
