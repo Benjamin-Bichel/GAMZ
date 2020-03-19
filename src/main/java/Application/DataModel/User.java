@@ -14,7 +14,6 @@ public class User {
     //@Index()
     private String name;
     private String role;
-    private String number;
     //@Index()
     private String email;
     //@Index()
@@ -28,7 +27,11 @@ public class User {
 
         this.name = name;
     }
+    public User(String name, int id){
 
+        this.name = name;
+        this.id = id;
+    }
     public User(String name, String role){
         this.name = name;
         this.role = role;
