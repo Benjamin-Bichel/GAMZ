@@ -13,9 +13,9 @@ public class Professor extends User {
     @OneToMany
     private List<Project> projectListrojectsList;
     @OneToMany
-    private List<Feild> seekingFeilds;
+    private List<Field> seekingFeilds;
     @ManyToMany
-    private List<Feild> activeFeilds;
+    private List<Field> activeFeilds;
 
     private boolean active;
     private String research;

@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class Feild {
+public class Field {
     @Id
-    private String feild;
+    private String field;
 }

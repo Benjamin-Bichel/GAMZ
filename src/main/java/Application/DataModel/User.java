@@ -25,6 +25,7 @@ public class User {
 
     public User(){}
     public User(String name){
+
         this.name = name;
     }
 
@@ -33,15 +34,21 @@ public class User {
         this.role = role;
     }
 
-    public Integer getId(){  return id; }
+    public Integer getId(){
+        return id;
+    }
 
-    public String getName(){  return name; }
+    public String getName(){
+        return name;
+    }
 
     public void setName(String name){
+
         this.name = name;
     }
 
     public String getRole(){
+
         return role;
     }
 }

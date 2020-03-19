@@ -15,9 +15,9 @@ public class Project {
     private List<Applicant> approvedStudents;
     private String projectDescription;
     @OneToMany
-    private List<Feild> projectsFeildsOfApplication;
+    private List<Field> projectsFeildsOfApplication;
     @OneToMany
-    private List<Feild> projectFeildsRequired;
+    private List<Field> projectFeildsRequired;
 
     private boolean activeProject;
     private boolean approval;

@@ -1,6 +1,6 @@
 package Application.Controllers;
 
-import Application.DataModel.Applicant;
+import Application.DataModel.Professor;
 import Application.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,8 @@ public class ProfessorController {
     private ApplicantService service;
 
     @GetMapping
-    public String applicantForm(Model model, @ModelAttribute Applicant applicant){
-        model.addAttribute("applicant", new Applicant());
+    public String profForm(Model model, @ModelAttribute Professor professor){
+        model.addAttribute("prof", new Professor());
         return "prof";
     }
 }

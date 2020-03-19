@@ -11,15 +11,8 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
 
 
-    /*@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String displayLogin(Model model) {
-        model.addAttribute("user", new User());
-        return "student";
-    }
-    */
-
     @GetMapping
-    public String applicationForm(Model model) {
+    public String login(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
