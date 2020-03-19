@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Prof")
+@RequestMapping("/profApplication")
 public class ProfessorController {
     @Autowired
     private ApplicantService service;
@@ -18,6 +18,6 @@ public class ProfessorController {
     @GetMapping
     public String profForm(Model model, @ModelAttribute Professor professor){
         model.addAttribute("prof", new Professor());
-        return "prof";
+        return "profApplication";
     }
 }

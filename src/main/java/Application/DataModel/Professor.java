@@ -11,11 +11,11 @@ public class Professor extends User {
     private Faculty faculty;
     //Multiple indexes
     @OneToMany
-    private List<Project> projectListrojectsList;
+    private List<Project> projectList;
     @OneToMany
-    private List<Field> seekingFeilds;
+    private List<Field> seekingFields;
     @ManyToMany
-    private List<Field> activeFeilds;
+    private List<Field> activeFields;
 
     private boolean active;
     private String research;
