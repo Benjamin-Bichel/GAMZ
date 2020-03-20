@@ -34,9 +34,6 @@ Instructions
 
 Link to Heroku app --> https://gamz4806.herokuapp.com/
 
-UML Class Diagram
------------------------------
-
 ER Mapping EntityManager
 -----------------------------
 ![](images/entityManagerFactory(EntityManagerFactoryBuilder).png)
