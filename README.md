@@ -37,9 +37,11 @@ Link to Heroku app --> https://gamz4806.herokuapp.com/
 UML Class Diagram
 -----------------------------
 
-Database Schema
+ER Mapping EntityManager
 -----------------------------
-
+![](entityManagerFactory(EntityManagerFactoryBuilder).png)
+DataBase Schema
+-----------------------------
 
 Milestone 3 - Next SCRUM Deliverables
 -----------------------------
