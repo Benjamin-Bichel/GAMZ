@@ -39,10 +39,10 @@ UML Class Diagram
 
 ER Mapping EntityManager
 -----------------------------
-![](entityManagerFactory(EntityManagerFactoryBuilder).png)
+![](images/entityManagerFactory(EntityManagerFactoryBuilder).png)
 DataBase Schema
 -----------------------------
-
+![](images/DataBase_Schema_4806.png)
 Milestone 3 - Next SCRUM Deliverables
 -----------------------------
 The next deliverable will implement:
