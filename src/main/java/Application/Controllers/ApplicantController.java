@@ -1,7 +1,6 @@
 package Application.Controllers;
 
-import Application.DataModel.Applicant;
-import Application.DataModel.ApplicantRepo;
+import Application.DataModel.*;
 import Application.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,10 @@ public class ApplicantController {
     public String applicationForm(Model model) {
         model.addAttribute("applicant", new Applicant());
         return "applicantApplication";
+    }
+    @PostMapping("/applicantApplication")
+    public String greetingSubmit(@ModelAttribute Applicant applicant) {
+        return "applicantResult";
     }
 
     /*@PostMapping(path = "/add")

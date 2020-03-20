@@ -1,38 +1,28 @@
 package Application.DataModel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table
 @Entity
 public class User {
     @Id
-    @GeneratedValue()
-    private int id;
-    //@Index()
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
     private String name;
-    private String role;
-    //@Index()
-    private String email;
-    //@Index()
-    private String url1;
-    //@Index()
-    private String url2;
+    private Role role;
 
-
-    public User(){}
-    public User(String name){
-
-        this.name = name;
-    }
-    public User(String name, int id){
-
-        this.name = name;
+    public User(){
         this.id = id;
     }
-    public User(String name, String role){
+    public User(String name){
+        this.name = name;
+    }
+    public User(Integer id, String name){
+        this.id = id;
+        this.name = name;
+    }
+    public User(Integer id, String name, Role role){
+        this.id = id;
         this.name = name;
         this.role = role;
     }
@@ -41,17 +31,22 @@ public class User {
         return id;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
+
     public String getName(){
         return name;
     }
 
     public void setName(String name){
-
         this.name = name;
     }
 
-    public String getRole(){
-
+    public void setRole(){
+        this.role = role;
+    }
+    public Role getRole(){
         return role;
     }
 }

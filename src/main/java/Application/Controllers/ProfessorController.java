@@ -1,23 +1,25 @@
 package Application.Controllers;
 
-import Application.DataModel.Professor;
+import Application.DataModel.*;
 import Application.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/profApplication")
 public class ProfessorController {
-    @Autowired
-    private ApplicantService service;
 
-    @GetMapping
-    public String profForm(Model model, @ModelAttribute Professor professor){
-        model.addAttribute("prof", new Professor());
+    @GetMapping("/profApplication")
+    public String profForm(Model model) {
+        model.addAttribute("professor", new Professor());
         return "profApplication";
+    }
+    @PostMapping("/profApplication")
+    public String profSubmit(@ModelAttribute Professor professor) {
+        return "profResult";
     }
 }
