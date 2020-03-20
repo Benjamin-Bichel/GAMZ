@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <style>
     input[type=text], select {
         width: 100%;
@@ -44,6 +44,22 @@
         background-color: #f2f2f2;
         padding: 20px;
     }
+    .myButton {
+        background-color: #3498DB;
+        width: 10%;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        cursor: pointer;
+        font-size: 75%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 4px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
 </style>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -52,14 +68,15 @@
 <h2 align="center" > Graduate Application Form</h2>
 <h3 align="center" >Applicant Profile</h3>
 
-<form action="#" th:action="@{/applicant.html}" th:object="${applicant}" method="post">
+<form action="#" th:action="@{/applicantApplication}" th:object="${applicant}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p>Email: <input type="text" th:field="*{email}" /></p>
     <p>Address: <input type="text" th:field="*{address}" /></p>
-    <p>Skills: <input type="text" th:field="*{skillsList}" /></p>
    <p>CV <input type="file" id="myfile" name="myfile" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
 </form>
+<a class="myButton" href="/"> Return Back to Home Page</a>
+
 </body>
 </html>

@@ -25,7 +25,20 @@ public class Applicant extends User {
     @ManyToOne
     private Project project;
     private byte[] diploma;
+    private Role role;
+    private String name;
 
+    public Applicant(){
+        super();
+        this.role = Role.APPLICANT;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;
