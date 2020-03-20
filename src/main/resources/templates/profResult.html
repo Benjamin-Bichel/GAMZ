@@ -10,7 +10,22 @@
         text-align: center;
         font-size: medium;
     }
-
+    .myButton {
+        background-color: #3498DB;
+        width: 10%;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        cursor: pointer;
+        font-size: 75%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 4px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
     </style>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -29,11 +44,12 @@
 
 <u><h4> Review Submitted Application </h4> </u><br>
 
-<p th:text="'Id: ' + ${professor.id}" />
 <p th:text="'Name: ' + ${professor.name}" />
 <p th:text="'Research Field: ' + ${professor.research}" />
 
 <br> <br> <b> <a href="/profApplication"> Submit another application.</a></b>
+<a class="myButton" href="/"> Return Back to Home Page</a>
+
 </body>
 </html>
 

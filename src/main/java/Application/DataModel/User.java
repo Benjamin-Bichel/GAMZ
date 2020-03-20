@@ -9,10 +9,10 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String name;
-    private Role role;
+    //private Role role;
 
     public User(){
-        this.id = id;
+        this.name = name;
     }
     public User(String name){
         this.name = name;
@@ -21,11 +21,7 @@ public class User {
         this.id = id;
         this.name = name;
     }
-    public User(Integer id, String name, Role role){
-        this.id = id;
-        this.name = name;
-        this.role = role;
-    }
+
 
     public Integer getId(){
         return id;
@@ -43,10 +39,10 @@ public class User {
         this.name = name;
     }
 
-    public void setRole(){
+   /* public void setRole(){
         this.role = role;
     }
     public Role getRole(){
         return role;
-    }
+    }*/
 }

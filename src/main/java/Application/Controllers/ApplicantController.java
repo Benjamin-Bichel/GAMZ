@@ -8,35 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ApplicantController {
     @Autowired
     private ApplicantService service;
-    private ApplicantRepo applicantRepo;
 
     @GetMapping("/applicantApplication")
     public String applicationForm(Model model) {
         model.addAttribute("applicant", new Applicant());
         return "applicantApplication";
     }
+
+    @Autowired
+    private ApplicantRepo applicantRepo;
     @PostMapping("/applicantApplication")
-    public String greetingSubmit(@ModelAttribute Applicant applicant) {
+    public String applicantSubmit(@ModelAttribute Applicant applicant, @RequestParam String name, @RequestParam String email, String address) {
+        Applicant a = new Applicant();
+        a.setName(name);
+        a.setEmail(email);
+        a.setAddress(address);
+        applicantRepo.save(a);
         return "applicantResult";
+
     }
-
-    /*@PostMapping(path = "/add")
-    public String addNewApplicant(String name, String email){
-        Applicant applicant = new Applicant();
-        applicant.setName(name);
-        applicant.setEmail(email);
-        applicantRepo.save(applicant);
-        return "Saved";
-    }*/
-
-   /* @PostMapping("/")
-    public String applicationResult(Model model, @ModelAttribute Applicant applicant) {
-        return "result";
-
-    }*/
 }

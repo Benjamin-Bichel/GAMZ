@@ -10,8 +10,6 @@ import java.util.List;
 @Entity
 public class Professor extends User {
 
-    @Id
-    private String name;
     @OneToOne
     private Faculty faculty;
     @OneToMany
@@ -22,32 +20,46 @@ public class Professor extends User {
     private List<Field> activeFields;
     @ManyToMany
     private List<Applicant> applicants;
-    private Role role;
-    private boolean active;
+    //private Role role;
+    //private boolean active;
+    private String name;
     private String research;
 
     @Autowired
-    public Professor() {
+    public Professor(){
         super();
-        this.applicants = new ArrayList<>();
-        active = true;
-        this.role = Role.PROF;
     }
-    @Autowired
+
     public Professor(String name) {
         this.name = name;
     }
 
-    @Autowired
+   /* public Professor(String name) {
+       super(name);
+        this.name = name;
+        this.applicants = new ArrayList<>();
+        active = true;
+        this.role = Role.PROF;
+    }
+
     public Professor(String name, Faculty faculty) {
         super(name);
         this.faculty = faculty;
+        this.role = Role.PROF;
     }
-    @Autowired
     public Professor(String name, Faculty faculty, String research) {
         super(name);
         this.faculty = faculty;
         this.research = research;
+        this.role = Role.PROF;
+    }*/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getResearch() {
@@ -58,11 +70,4 @@ public class Professor extends User {
         this.research = research;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setInactive(){
-        this.active = false;
-    }
 }
