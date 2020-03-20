@@ -39,7 +39,7 @@ UML Class Diagram
 
 ER Mapping EntityManager
 -----------------------------
-
+![](entityManagerFactory(EntityManagerFactoryBuilder).png)
 DataBase Schema
 -----------------------------
 
