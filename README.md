@@ -6,7 +6,7 @@ Graduate Management System
 
 Project Description:
 --------------------------------
-A web application to manage graduate applications. Students are able to submit applications with relevant information. 
+GAMZ is web application to manage graduate applications. Students are able to submit applications with relevant information. 
 Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before forwarding them to the Professors for recommendations. The administrator can then make a final decision on the applicatons.
 
 Team Leftovers1 - Group Members:
