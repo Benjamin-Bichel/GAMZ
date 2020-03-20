@@ -2,7 +2,7 @@ package Application.DataModel;
 
 import javax.persistence.*;
 
-@Table
+
 @Entity
 public class User {
     @Id

@@ -5,7 +5,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.*;
 
-@Table
+
 @Entity
 public class Admin extends User {
     private Role role;
