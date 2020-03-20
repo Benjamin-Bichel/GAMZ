@@ -31,7 +31,7 @@ Instructions
 2. Open a new browser and type http://localhost:8080/
 3. You will be redirected to a Login page, select the role of your choosing.
 
-Link to Heroku app --> https://gamz.herokuapp.com/
+Link to Heroku app --> https://gamz4806.herokuapp.com/
 
 UML Class Diagram
 -----------------------------
