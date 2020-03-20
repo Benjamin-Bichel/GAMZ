@@ -7,8 +7,7 @@ Graduate Management System
 Project Description:
 --------------------------------
 A web application to manage graduate applications. Students are able to submit applications with relevant information. 
-Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before 
-forwarding them to the Professors for recommendations. The adiministrator can then make a final decision on the applicatons.
+Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before forwarding them to the Professors for recommendations. The administrator can then make a final decision on the applicatons.
 
 Team Leftovers1 - Group Members:
 
@@ -19,11 +18,13 @@ Team Leftovers1 - Group Members:
 
 Milestone 2 - Current Prototype:
 ------------------------------
+The current deliverable implements:
 
 - A main login view redirecting Users based on role 
 - Multiple views for each type of User
-- Applicant shall submit an application
-- Admin shall view applications
+- Applicant is able to submit an application
+- Professor is able to submit an application
+- Administrator is able to view all submitted applications
 
 Instructions
 -----------------------------
@@ -43,10 +44,11 @@ Database Schema
 Milestone 3 - Next SCRUM Deliverables
 -----------------------------
 The next deliverable will implement:
+
+- Administrators select applicant profiles & send to Professors
+- Professor's home page will recieve notification
+- Professor will submit an assesment 
+- Administrator will submit a final decision
+- Applicants will get notified of final decision
+
  
-
-
-
-
-
-
