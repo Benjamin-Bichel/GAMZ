@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    private String name;
+    protected Integer id;
+    protected String name;
     //private Role role;
 
     public User(){

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AdminController {
     @Autowired
     private ProfRepo profreposiroty;
+    @Autowired
     private ApplicantRepo applicantRepo;
 
     @GetMapping
@@ -34,6 +35,7 @@ public class AdminController {
     public @ResponseBody
     Iterable<Applicant> getAllApplicants() {
         // This returns a JSON or XML with the users
-        return applicantRepo.findAll();
+        Iterable<Applicant> test = applicantRepo.findAll();
+        return test;
     }
 }
