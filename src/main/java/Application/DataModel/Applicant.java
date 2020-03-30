@@ -32,6 +32,10 @@ public class Applicant extends User {
         super();
         this.role = Role.APPLICANT;
     }
+    public Applicant(String firstName, String lastName){
+        super(firstName + lastName);
+        this.role = Role.APPLICANT;
+    }
 
     public String getEmail() {
         return email;

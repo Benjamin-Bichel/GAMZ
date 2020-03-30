@@ -45,7 +45,7 @@ lib
  .idea/modules
  *.iml
  *.ipr
-
+ *.odb
 # CMake
 cmake-build-*/
 
