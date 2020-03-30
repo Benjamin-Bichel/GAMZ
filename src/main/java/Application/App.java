@@ -43,6 +43,14 @@ public class App {
     public CommandLineRunner demo(ApplicantRepo repository) {
         return (args) ->  {
             // save a couple of customers
+
+            for (Applicant app : repository.findAll()){
+                if(app != null){
+                    System.out.println(app.getName() + app.getId());
+
+                    }
+                }
+
             repository.save(new Applicant("Jack", "Bauer"));
             repository.save(new Applicant("Chloe", "O'Brian"));
             repository.save(new Applicant("Kim", "Bauer"));
@@ -67,10 +75,7 @@ System.out.println();
                     });
 
             // fetch customers by last name
-            System.out.println("Customer found with findByLastName('Jack Bauer'):");
-            System.out.println("--------------------------------------------");
-            Applicant bauer = repository.findByName("JackBauer");
-            System.out.println(bauer.getName());
+
             // for (Customer bauer : repository.findByLastName("Bauer")) {
             // 	log.info(bauer.toString());
             // }
