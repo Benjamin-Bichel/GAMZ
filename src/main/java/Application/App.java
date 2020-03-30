@@ -39,49 +39,8 @@ public class App {
         return txManager;
     }
 
-    @Bean
-    public CommandLineRunner demo(ApplicantRepo repository) {
-        return (args) ->  {
-            // save a couple of customers
 
-            for (Applicant app : repository.findAll()){
-                if(app != null){
-                    System.out.println(app.getName() + app.getId());
-
-                    }
-                }
-
-            repository.save(new Applicant("Jack", "Bauer"));
-            repository.save(new Applicant("Chloe", "O'Brian"));
-            repository.save(new Applicant("Kim", "Bauer"));
-            repository.save(new Applicant("David", "Palmer"));
-            repository.save(new Applicant("Michelle", "Dessler"));
-System.out.println();
-            // fetch all customers
-            System.out.println("Customers found with findAll():");
-            System.out.println("-------------------------------");
-            for (Applicant customer : repository.findAll()) {
-                System.out.println(customer.toString());
-            }
-            System.out.println("");
-
-            // fetch an individual customer by ID
-            repository.findById(1)
-                    .ifPresent(customer -> {
-                        System.out.println("Customer found with findById(1):");
-                        System.out.println("--------------------------------");
-                        System.out.println(customer.getName());
-                        System.out.println("");
-                    });
-
-            // fetch customers by last name
-
-            // for (Customer bauer : repository.findByLastName("Bauer")) {
-            // 	log.info(bauer.toString());
-            // }
-            System.out.println("");
-        };
-    }
+    
 
 
 
