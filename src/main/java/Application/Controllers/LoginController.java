@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/app")
 public class LoginController {
 
 
@@ -16,8 +16,6 @@ public class LoginController {
         model.addAttribute("user", new User());
         return "login";
     }
-
-
 
 }
 

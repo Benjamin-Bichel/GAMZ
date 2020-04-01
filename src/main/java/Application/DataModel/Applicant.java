@@ -5,9 +5,7 @@ import java.util.List;
 
 
 @Entity
-public class Applicant extends User {
-    //Make a DTO later
-    private  String email;
+public class Applicant extends User  {
     private String summary;
     private  String address;
     @OneToMany
@@ -25,21 +23,13 @@ public class Applicant extends User {
     @ManyToOne
     private Project project;
     private byte[] diploma;
-    private Role role;
 
-
-    public Applicant(){
-        super();
-        this.role = Role.APPLICANT;
+public Applicant(){}
+    public Applicant(String name, String email){
+        super(name, email);
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getSummary() {
         return summary;
@@ -128,4 +118,6 @@ public class Applicant extends User {
     public void setVolunteerHistory(List<String> volunteerHistory) {
         this.volunteerHistory = volunteerHistory;
     }
+
+
 }
