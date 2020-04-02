@@ -1,42 +1,46 @@
+
 # GAMZ
+> ## SYSC 4806 Project Graduade Management System
 
-SYSC 4806 Project
-Graduate Management System
----------------------
+GAMZ is graduate admission management system web application. Students are able to submit applications with relevant information. Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before forwarding them to the Professors for recommendations. The administrator can then make a final decision on the applicatons.
 
-Project Description:
---------------------------------
-GAMZ is web application to manage graduate applications. Students are able to submit applications with relevant information. 
-Professors are able to list their fields of research. The applications can then be filtered and reviewed by and administrator before forwarding them to the Professors for recommendations. The administrator can then make a final decision on the applicatons.
-
-Team Leftovers1 - Group Members:
-
-- Benjamin Bichel 100998411
-- Thomas Carriere 100947281
-- Fatima Hashi 101041794
+[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
+> Link to Heroku app --> https://gamz4806.herokuapp.com/
 
 
-Milestone 3 - Final Prototype:
+### Group Leftovers1 -  Members:
+
+- Benjamin Bichel - 100998411
+- Thomas Carriere - 100947281
+- Fatima Hashi - 101041794
+
+
+### Milestone 3 - Final Prototype:
 ------------------------------
-The current deliverable implements:
 
-- Administrators select applicant profiles & send to Professors
-- Professor's home page will recieve notification
-- Professor will submit an assesment 
-- Administrator will submit a final decision
-- Applicants will get notified of final decision
+
+
 
 Instructions
 -----------------------------
-1. Run App.java class under Application package
+1. Run App.java class under the package "Application" 
 2. Open a new browser and type http://localhost:8080/
-3. You will be redirected to a Login page, select the role of your choosing.
+3. You will be redirected to a Login page
 
-Link to Heroku app --> https://gamz4806.herokuapp.com/
 
-ER Mapping EntityManager
------------------------------
-![](images/entityManagerFactory(EntityManagerFactoryBuilder).png)
-DataBase Schema
+## Diagrams
+
+
+### DataBase Schema
 -----------------------------
 ![](images/DataBase_Schema_4806.png)
+
+### UML Class Diagram
+-----------------------------
+
+
+### ER Mapping EntityManager
+-----------------------------
+![](images/entityManagerFactory(EntityManagerFactoryBuilder).png)
+
+
