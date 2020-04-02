@@ -26,8 +26,9 @@ public class ProfessorController {
     public String getAllProfs(Model model)
     {
         List<Professor> list = service.getAllProfs();
-        List<Field> listofFeilds = fieldService.getAllProfs();
+        List<Field> listOfFields = fieldService.getAllFields();
         model.addAttribute("professors", list);
+        model.addAttribute("fields", listOfFields);
         return "list-profs";
     }
 

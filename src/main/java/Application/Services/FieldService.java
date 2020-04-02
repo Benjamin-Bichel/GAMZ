@@ -26,11 +26,11 @@ public class FieldService {
         }
     }
 
-    public void createField(){
+    public void createField(Field field){
 
     }
 
-    public void deleteField(String field){
+    public void deleteField(String fieldid){
 
     }
 }
