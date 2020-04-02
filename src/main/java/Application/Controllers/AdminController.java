@@ -2,6 +2,7 @@ package Application.Controllers;
 
 import Application.DataModel.*;
 import Application.Services.ApplicantService;
+import Application.Services.ProfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,10 @@ import java.util.List;
 public class AdminController{
     @Autowired
     private ProfRepo profreposiroty;
-
     @Autowired
-    ApplicantService service;
+    ApplicantService applicantService;
     @Autowired
-    private ApplicantRepo applicantRepo;
+    ProfService profService;
 
     @GetMapping
     public String adminForm(Model model, @ModelAttribute Admin admin){
@@ -27,16 +27,16 @@ public class AdminController{
     }
 
     @GetMapping(path="/getProfs")
-    public @ResponseBody
-    Iterable<Professor> getAllProfs() {
-        // This returns a JSON or XML with the users
-        return profreposiroty.findAll();
+    public String getAllProfessors(Model model) {
+        List<Professor> list = profService.getAllProfs();
+        model.addAttribute("professors", list);
+        return "list-profs";
     }
 
 
     @GetMapping(path="/getApplicants")
     public String getAllApplicants(Model model) {
-        List<Applicant> list = service.getAllApplicants();
+        List<Applicant> list = applicantService.getAllApplicants();
         model.addAttribute("applicants", list);
         return "list-applicants";
     }

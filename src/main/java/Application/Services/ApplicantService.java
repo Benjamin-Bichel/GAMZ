@@ -33,7 +33,7 @@ public class ApplicantService {
         if(employee.isPresent()) {
             return employee.get();
         } else {
-            throw new RecordNotFoundException("No employee record exist for given id");
+            throw new RecordNotFoundException("No applicant record exist for given id");
         }
     }
 
@@ -75,7 +75,7 @@ public class ApplicantService {
         {
             repository.deleteById(id);
         } else {
-            throw new RecordNotFoundException("No employee record exist for given id");
+            throw new RecordNotFoundException("No applicant record exist for given id");
         }
     }
 }
