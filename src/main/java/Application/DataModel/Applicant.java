@@ -6,8 +6,10 @@ import java.util.List;
 
 @Entity
 public class Applicant extends User  {
-    private String summary;
     private  String address;
+    private String research;
+    private double CGPA;
+    private String program;
     @OneToMany
     private List<Skills> skillsList;
     @OneToOne
@@ -30,21 +32,35 @@ public Applicant(){}
     }
 
 
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getResearch() {
+        return research;
+    }
+
+    public void setResearch(String research) {
+        this.research = research;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program ) {
+        this.program = program;
+    }
+
+    public double getCGPA() {
+        return CGPA;
+    }
+
+    public void setCGPA(double CGPA) {
+        this.CGPA = CGPA;
     }
 
     public Education getEducation() {

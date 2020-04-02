@@ -47,14 +47,17 @@ public class ApplicantService {
         }
         else
         {
-            Optional<Applicant> employee = repository.findById(applicant.getId());
+            Optional<Applicant> user = repository.findById(applicant.getId());
 
-            if(employee.isPresent())
+            if(user.isPresent())
             {
-                Applicant newEntity = employee.get();
+                Applicant newEntity = user.get();
                 newEntity.setName(applicant.getName());
                 newEntity.setEmail(applicant.getEmail());
                 newEntity.setAddress(applicant.getAddress());
+                newEntity.setResearch(applicant.getResearch());
+                newEntity.setProgram(applicant.getProgram());
+                newEntity.setCGPA(applicant.getCGPA());
 
                 newEntity = repository.save(newEntity);
 

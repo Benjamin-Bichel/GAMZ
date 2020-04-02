@@ -1,6 +1,8 @@
 package Application.Controllers;
 
 import Application.DataModel.*;
+import Application.Exception.RecordNotFoundException;
+import Application.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,33 +10,50 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ApplicantController {
     @Autowired
-    private ApplicantRepo applicantRepo;
+    private ApplicantService service;
 
-    @Autowired
-    public ApplicantController(ApplicantRepo applicantRepo) {
-        this.applicantRepo = applicantRepo;
+    @RequestMapping("/applicant")
+    public String getAllApplicants(Model model)
+    {
+        List<Applicant> list = service.getAllApplicants();
+
+        model.addAttribute("applicants", list);
+        return "list-applicants";
     }
-    /*@GetMapping("/applicantApplication")
-    public String applicationForm(Model model) {
-        model.addAttribute("applicant", new Applicant());
-        return "applicantApplication";
+
+    @RequestMapping(path = {"/editApplicant", "/editApplicant/{id}"})
+    public String editApplicantById(Model model, @PathVariable("id") Optional<Long> id)
+            throws RecordNotFoundException
+    {
+        if (id.isPresent()) {
+            Applicant applicant = service.getApplicantById(id.get());
+            model.addAttribute("applicant", applicant);
+        } else {
+            model.addAttribute("applicant", new Applicant());
+        }
+        return "add-edit-applicant";
     }
-*/
-    /*@PostMapping("/applicantApplication")
-    public String applicantSubmit(@ModelAttribute Applicant applicant, @RequestParam String name, @RequestParam String email, String address) {
-        Applicant a = new Applicant();
-        a.setName(name);
-        a.setEmail(email);
-        a.setAddress(address);
-        applicantRepo.save(a);
-        return "applicantResult";
 
-    }*/
+    @RequestMapping(path = "/deleteApplicant/{id}")
+    public String deleteApplicantById(Model model, @PathVariable("id") Long id)
+            throws RecordNotFoundException
+    {
+        service.deleteApplicantById(id);
+        return "redirect:/applicant";
+    }
 
+    @RequestMapping(path = "/createApplicant", method = RequestMethod.POST)
+    public String createOrUpdateApplicant(Applicant applicant)
+    {
+        service.createOrUpdateApplicant(applicant);
+        return "redirect:/applicant";
+    }
 
 
 }
