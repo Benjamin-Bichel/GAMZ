@@ -2,6 +2,7 @@ package Application.Controllers;
 
 import Application.DataModel.*;
 import Application.Exception.RecordNotFoundException;
+import Application.Services.FieldService;
 import Application.Services.ProfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +17,16 @@ public class ProfessorController {
 
     @Autowired
     ProfService service;
-    @Autowired ProfRepo repo;
+    @Autowired
+    FieldService fieldService;
+    @Autowired
+    ProfRepo repo;
 
     @RequestMapping("/prof")
     public String getAllProfs(Model model)
     {
         List<Professor> list = service.getAllProfs();
-
+        List<Field> listofFeilds = fieldService.getAllProfs();
         model.addAttribute("professors", list);
         return "list-profs";
     }
