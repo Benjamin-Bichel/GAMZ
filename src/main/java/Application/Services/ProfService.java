@@ -29,9 +29,6 @@ public class ProfService {
         }
     }
 
-
-
-
     public Professor getProfessorById(Long id) throws RecordNotFoundException
     {
         Optional<Professor> professor = repository.findById(id);
@@ -48,7 +45,6 @@ public class ProfService {
         if(professor.getId()  == null)
         {
             professor = repository.save(professor);
-
             return professor;
         }
         else
