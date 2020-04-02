@@ -1,29 +1,84 @@
 package Application.Services;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import Application.DataModel.*;
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import Application.DataModel.Applicant;
+import Application.DataModel.ApplicantRepo;
+import Application.Exception.RecordNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ApplicantService {
 
-    private CVInterpeter interpeter = new CVInterpeter();
-
     @Autowired
-    private ApplicantRepo repo;
+    ApplicantRepo repository;
 
-    public void add(Applicant applicant){
-        repo.save(applicant);
+    public List<Applicant> getAllApplicants()
+    {
+        List<Applicant> result = (List<Applicant>) repository.findAll();
+
+        if(result.size() > 0) {
+            return result;
+        } else {
+            return new ArrayList<Applicant>();
+        }
     }
 
-    public void delete(int id){
-        repo.deleteById(id);
+    public Applicant getApplicantById(Long id) throws RecordNotFoundException
+    {
+        Optional<Applicant> employee = repository.findById(id);
+
+        if(employee.isPresent()) {
+            return employee.get();
+        } else {
+            throw new RecordNotFoundException("No applicant record exist for given id");
+        }
     }
 
-    public List<Applicant> getApplicants(){
-        return (List<Applicant>) repo.findAll();
+    public Applicant createOrUpdateApplicant(Applicant applicant)
+    {
+        if(applicant.getId()  == null)
+        {
+            applicant = repository.save(applicant);
+
+            return applicant;
+        }
+        else
+        {
+            Optional<Applicant> user = repository.findById(applicant.getId());
+
+            if(user.isPresent())
+            {
+                Applicant newEntity = user.get();
+                newEntity.setName(applicant.getName());
+                newEntity.setEmail(applicant.getEmail());
+                newEntity.setAddress(applicant.getAddress());
+                newEntity.setResearch(applicant.getResearch());
+                newEntity.setProgram(applicant.getProgram());
+                newEntity.setCGPA(applicant.getCGPA());
+
+                newEntity = repository.save(newEntity);
+
+                return newEntity;
+            } else {
+                applicant = repository.save(applicant);
+
+                return applicant;
+            }
+        }
+    }
+
+    public void deleteApplicantById(Long id) throws RecordNotFoundException
+    {
+        Optional<Applicant> applicant = repository.findById(id);
+
+        if(applicant.isPresent())
+        {
+            repository.deleteById(id);
+        } else {
+            throw new RecordNotFoundException("No applicant record exist for given id");
+        }
     }
 }

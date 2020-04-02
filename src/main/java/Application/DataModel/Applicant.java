@@ -5,11 +5,11 @@ import java.util.List;
 
 
 @Entity
-public class Applicant extends User {
-    //Make a DTO later
-    private  String email;
-    private String summary;
+public class Applicant extends User  {
     private  String address;
+    private String research;
+    private double CGPA;
+    private String program;
     @OneToMany
     private List<Skills> skillsList;
     @OneToOne
@@ -25,29 +25,12 @@ public class Applicant extends User {
     @ManyToOne
     private Project project;
     private byte[] diploma;
-    private Role role;
 
-
-    public Applicant(){
-        super();
-        this.role = Role.APPLICANT;
+public Applicant(){}
+    public Applicant(String name, String email){
+        super(name, email);
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
 
     public String getAddress() {
         return address;
@@ -55,6 +38,29 @@ public class Applicant extends User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getResearch() {
+        return research;
+    }
+
+    public void setResearch(String research) {
+        this.research = research;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program ) {
+        this.program = program;
+    }
+
+    public double getCGPA() {
+        return CGPA;
+    }
+
+    public void setCGPA(double CGPA) {
+        this.CGPA = CGPA;
     }
 
     public Education getEducation() {
@@ -128,4 +134,6 @@ public class Applicant extends User {
     public void setVolunteerHistory(List<String> volunteerHistory) {
         this.volunteerHistory = volunteerHistory;
     }
+
+
 }

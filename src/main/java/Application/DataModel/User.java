@@ -2,32 +2,32 @@ package Application.DataModel;
 
 import javax.persistence.*;
 
-@Table
 @Entity
+@Table
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    protected Integer id;
-    protected String name;
-    //private Role role;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    //@NotBlank(message = "Name is mandatory")
+    @Column
+    public String name;
+    //@NotBlank(message = "Email is mandatory")
+    @Column
+    private String email;
 
     public User(){
-        this.name = name;
-    }
-    public User(String name){
-        this.name = name;
-    }
-    public User(Integer id, String name){
-        this.id = id;
-        this.name = name;
     }
 
-
-    public Integer getId(){
+    public User(String name, String email) {
+        super();
+        this.name = name;
+        this.email = email;
+    }
+    public Long getId(){
         return id;
     }
 
-    public void setId(int id){
+    public void setId(Long id){
         this.id = id;
     }
 
@@ -39,10 +39,15 @@ public class User {
         this.name = name;
     }
 
-   /* public void setRole(){
-        this.role = role;
+    public String getEmail() {
+        return email;
     }
-    public Role getRole(){
-        return role;
-    }*/
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + "id=" + getId() + ", name=" + name + ", email=" + getEmail() + '}';
+    }
 }
