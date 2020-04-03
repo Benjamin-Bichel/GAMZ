@@ -2,6 +2,7 @@ package Application.Controllers;
 
 import Application.DataModel.*;
 import Application.Exception.RecordNotFoundException;
+import Application.Services.FieldService;
 import Application.Services.ProfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,14 +17,18 @@ public class ProfessorController {
 
     @Autowired
     ProfService service;
-    @Autowired ProfRepo repo;
+    @Autowired
+    FieldService fieldService;
+    @Autowired
+    ProfRepo repo;
 
     @RequestMapping("/prof")
     public String getAllProfs(Model model)
     {
         List<Professor> list = service.getAllProfs();
-
+        List<Field> listOfFields = fieldService.getAllFields();
         model.addAttribute("professors", list);
+        model.addAttribute("fields", listOfFields);
         return "list-profs";
     }
 
@@ -52,6 +57,25 @@ public class ProfessorController {
     public String createOrUpdateProf(Professor professor)
     {
         service.createOrUpdateProf(professor);
+        return "redirect:/prof";
+    }
+
+
+    @RequestMapping(path = "/editField")
+    public String editField(Model model){
+        model.addAttribute("field", new Field());
+        return "add-edit-Field";
+    }
+
+    @RequestMapping(path = "/deleteField")
+    public String deleteField(Field field){
+        fieldService.deleteField(field.getField());
+        return "redirect:/prof";
+    }
+
+    @RequestMapping(path = "/createField", method = RequestMethod.POST)
+    public String createOrUpdateField(Field field){
+        fieldService.createField(field);
         return "redirect:/prof";
     }
 

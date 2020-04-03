@@ -17,6 +17,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
+
         }
         .button {
             background-color: #4CAF50; /* Green */
@@ -30,89 +31,62 @@
             font-size: 16px;
             border-radius: 4px;
         }
-        .tableProfs{
-            width: 50%;
-            float: left;
-            padding-right: 5px;
-        }
-        .tableFields{
-            width: 50%;
-            float: right;
-            padding-left: 5px;
-        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>All Professors</title>
+    <title>All Applicants</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
-
 <h2 align="center" > Graduate Application Form</h2>
-<h3 align="center" >Professor Home Page</h3>
-
-
+<h3 align="center" >Applicant Home Page</h3>
 <body>
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${professors}" class="container my-5" >
+            <div th:switch="${applicants}" class="container my-5">
                 <p class="my-5">
-                    <a href="/editProf" class="btn btn-primary">
-                        <i class="fas fa-user-plus ml-2"> Submit New Professor Profile </i></a>
-                </p>
-                <!---button for creating feilds -->
-              <p class="my-5">
-                    <a href="/editField" class="btn btn-primary">
-                        <i class="fas fa-user-plus ml-2"> Submit New Field </i>
-                    </a>
+                    <a href="/editApplicant" class="btn btn-primary">
+                        <i class="fas fa-user-plus ml-2"> Submit New Applicant </i></a>
                 </p>
                 <div class="col-md-10">
                     <h2 th:case="null">No record found !!</h2>
-
-                    <div th:case="*" class="tableProfs">
+                    <div th:case="*">
                         <table class="table table-striped table-responsive-md">
                             <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Email </th>
+                                <th>Address</th>
+                                <th>Research</th>
+                                <th>Program </th>
+                                <th>CGPA</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="professor : ${professors}">
-                                <td th:text="${professor.name}"></td>
-                                <td th:text="${professor.email}"></td>
+                            <tr th:each="applicant : ${applicants}">
+                                <td th:text="${applicant.name}"></td>
+                                <td th:text="${applicant.email}"></td>
+                                <td th:text="${applicant.address}"></td>
+                                <td th:text="${applicant.research}"></td>
+                                <td th:text="${applicant.program}"></td>
+                                <td th:text="${applicant.CGPA}"></td>
+
                                 <td>
-                                    <a th:href="@{/editProf/{id}(id=${professor.id})}"
+                                    <a th:href="@{/editApplicant/{id}(id=${applicant.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/deleteProf/{id}(id=${professor.id})}"
+                                    <a th:href="@{/deleteApplicant/{id}(id=${applicant.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-times ml-2"></i>
                                     </a>
                                 </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- New Table for feilds-->
-                    <div  class="tableFields">
-                        <table class="table table-striped table-responsive-md">
-                            <thead>
-                            <tr>
-                                <th>Fields</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="field : ${fields}">
-                                <td th:text="${field.field}"></td>
                             </tr>
                             </tbody>
                         </table>
