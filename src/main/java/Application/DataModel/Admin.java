@@ -15,7 +15,7 @@ public class Admin extends User {
     private List<Professor> allProfessors;
     public Admin (){
         super();
-        this.role = Role.ADMIN;
+        this.role = Role.APPLICANT;
     }
 
     public void saveApplicant(Applicant applicant){
