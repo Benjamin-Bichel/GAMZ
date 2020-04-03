@@ -67,11 +67,11 @@ public class ProfessorController {
         return "add-edit-Field";
     }
 
-    @RequestMapping(path = "/deleteField")
+    /*@RequestMapping(path = "/deleteField")
     public String deleteField(Field field){
         fieldService.deleteField(field.getField());
         return "redirect:/prof";
-    }
+    }*/
 
     @RequestMapping(path = "/createField", method = RequestMethod.POST)
     public String createOrUpdateField(Field field){
