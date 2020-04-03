@@ -4,6 +4,7 @@ import Application.DataModel.Field;
 import Application.DataModel.FieldRepo;
 import Application.DataModel.ProfRepo;
 import Application.DataModel.Professor;
+import Application.Exception.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,14 @@ public class FieldService {
         }
     }
 
-    public void deleteField(String fieldid){
+    public void deleteField(String fieldid) throws RecordNotFoundException {
+        Optional<Field> potentailField = repository.findById(fieldid);
 
+        if(potentailField.isPresent())
+        {
+            repository.deleteById(fieldid);
+        } else {
+            throw new RecordNotFoundException("No professor record exist for given id");
+        }
     }
 }
