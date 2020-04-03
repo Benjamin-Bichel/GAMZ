@@ -17,7 +17,6 @@
             position: absolute;
             top: 10px;
             right: 10px;
-
         }
         .button {
             background-color: #4CAF50; /* Green */
@@ -61,14 +60,14 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${professors}" class="container my-5">
+            <div th:switch="${professors}" class="container my-5" >
                 <p class="my-5">
                     <a href="/editProf" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Submit New Professor Profile </i></a>
                 </p>
                 <!---button for creating feilds -->
               <p class="my-5">
-                    <a class="btn btn-primary">
+                    <a href="/editField" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Submit New Field </i>
                     </a>
                 </p>

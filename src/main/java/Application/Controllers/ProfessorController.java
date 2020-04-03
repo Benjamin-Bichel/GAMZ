@@ -60,4 +60,23 @@ public class ProfessorController {
         return "redirect:/prof";
     }
 
+
+    @RequestMapping(path = "/editField")
+    public String editField(Model model){
+        model.addAttribute("field", new Field());
+        return "add-edit-Field";
+    }
+
+    @RequestMapping(path = "/deleteField")
+    public String deleteField(Field field){
+        fieldService.deleteField(field.getField());
+        return "redirect:/prof";
+    }
+
+    @RequestMapping(path = "/createField", method = RequestMethod.POST)
+    public String createOrUpdateField(Field field){
+        fieldService.createField(field);
+        return "redirect:/prof";
+    }
+
 }
