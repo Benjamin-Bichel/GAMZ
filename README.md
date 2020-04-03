@@ -17,15 +17,19 @@ GAMZ is graduate admission management system web application. Students are able 
 
 ### Milestone 3 - Final Prototype:
 ------------------------------
-
-
+- Able to select a role: Admin/Applicant/Professor
+- Applicant is able to submit a profile(s) and view their submitted profile
+- Professor is able to submit a profile(s) and view their submitted profile
+- Administrator is able to view all submitted profiles
+- Administrator is able to submit fields
+- Administrator can send Applicant profile to Prof (not fully implemented)
 
 
 Instructions
 -----------------------------
 1. Run App.java class under the package "Application" 
 2. Open a new browser and type http://localhost:8080/
-3. You will be redirected to a Login page
+3. You will be redirected to a Login page, select role of your choosing
 
 
 ## Diagrams
@@ -37,7 +41,7 @@ Instructions
 
 ### UML Class Diagram
 -----------------------------
-
+![](images/UML%20Class%20Diagram.png)
 
 ### ER Mapping EntityManager
 -----------------------------
