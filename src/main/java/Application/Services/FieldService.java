@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FieldService {
@@ -27,7 +28,10 @@ public class FieldService {
     }
 
     public void createField(Field field){
-
+        Optional<Field> potentailField = repository.findById(field.getField());
+        if(!potentailField.isPresent()){
+            repository.save(field);
+        }
     }
 
     public void deleteField(String fieldid){
