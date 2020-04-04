@@ -48,7 +48,7 @@
             <div class="col-md-10">
                 <form action="#" th:action="@{/admin/settingRelation}" th:object="${applicant}" method="post">
                     <div class="form-group col-md-8">
-                        <label th:text="${applicant.name}"class="col-form-label"></label>
+                        <label th:text="${applicant.name}" th:feild="*{name}" class="col-form-label"></label>
                     </div>
 
                     <div class="form-group col-md-8">
@@ -60,6 +60,8 @@
                                     th:text="${prof.name}"></option>
                         </select>
                     </div>
+
+                    <input type="hidden" id="id" th:value="${applicant.id}" th:field="*{id}">
 
                     <div class="col-md-6">
                         <input type="submit" class="btn btn-primary" value=" Submit ">

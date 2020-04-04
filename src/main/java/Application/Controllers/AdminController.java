@@ -71,17 +71,16 @@ public class AdminController{
 
     @RequestMapping(value = "/admin/settingRelation", method = RequestMethod.POST)
     public String setRelationships(Applicant applicant) throws RecordNotFoundException {
-        System.out.println(applicant.getName());
-        System.out.println(applicant.getProfessorId());
+
             if(applicant.getProfessorId() != null){
                 long profId = Long.parseLong(applicant.getProfessorId());
                 Professor prof = profService.getProfessorById(profId);
-                applicantService.setProfessor(applicant, prof);
+                applicant = applicantService.setProfessor(applicant, prof);
                 profService.addApplicant(applicant, prof);
             }
 
 
-        return "redirect:/admin/getFieldRelationShips/feild?=" + applicant.getResearch().getField();
+        return "redirect:/admin/getFieldRelationShips/?field=" + applicant.getResearch().getField();
     }
 
 }

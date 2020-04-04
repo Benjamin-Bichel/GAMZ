@@ -40,7 +40,7 @@ public class ApplicantService {
         }
     }
 
-    public void setProfessor(Applicant applicant, Professor professor) throws RecordNotFoundException {
+    public Applicant setProfessor(Applicant applicant, Professor professor) throws RecordNotFoundException {
         Optional<Applicant> applicantx = repository.findById(applicant.getId());
 
         if(applicantx.isPresent())
@@ -48,6 +48,7 @@ public class ApplicantService {
             Applicant applicantx1 = applicantx.get();
             applicantx1.setProfessorProposed(professor);
             repository.save(applicantx1);
+            return  applicantx1;
         } else {
             throw new RecordNotFoundException("No professor record exist for given id");
         }
