@@ -63,8 +63,13 @@
                         <i class="fas fa-user-plus ml-2"> Submit New Professor Profile </i></a>
                 </p>
                 <!---button for creating feilds -->
+<<<<<<< HEAD
               <p class="my-5">
                     <a href="/fieldEdit" class="btn btn-primary">
+=======
+                <p class="my-5">
+                    <a href="/editField" class="btn btn-primary">
+>>>>>>> There is a problem with getting the applicant object back from the front end
                         <i class="fas fa-user-plus ml-2"> Submit New Field </i>
                     </a>
                 </p>
@@ -77,7 +82,11 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email </th>
+<<<<<<< HEAD
                                 <th>Research </th>
+=======
+                                <th>Field of Reasurch</th>
+>>>>>>> There is a problem with getting the applicant object back from the front end
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -86,6 +95,10 @@
                             <tr th:each="professor : ${professors}">
                                 <td th:text="${professor.name}"></td>
                                 <td th:text="${professor.email}"></td>
+                                <div th:switch="${professor.research}">
+                                    <td th:case="null" th:text="${professor.research}"></td>
+                                    <td th:case="*" th:text="${professor.research.field}"></td>
+                                </div>
                                 <td>
                                     <a th:href="@{/profEdit/{id}(id=${professor.id})}"
                                        class="btn btn-primary">

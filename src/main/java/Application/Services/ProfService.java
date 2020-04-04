@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-import Application.DataModel.Field;
-import Application.DataModel.FieldRepo;
-import Application.DataModel.ProfRepo;
-import Application.DataModel.Professor;
+import Application.DataModel.*;
 import Application.Exception.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,5 +75,30 @@ public class ProfService {
         } else {
             throw new RecordNotFoundException("No professor record exist for given id");
         }
+    }
+
+    public List<Professor> getProfsByField(Field field){
+
+        ArrayList<Professor> applicantsWithoutProfs = new ArrayList<Professor>();
+        List<Professor> result = (List<Professor>) repository.findAllByResearch(field);
+
+        if(result.size() > 0) {
+            return result;
+        }
+        return applicantsWithoutProfs;
+    }
+
+    public void addApplicant(Applicant applicant, Professor profx) throws RecordNotFoundException {
+        Optional<Professor> professor = repository.findById(profx.getId());
+
+        if(professor.isPresent())
+        {
+            Professor prof = professor.get();
+            prof.getApplicants().add(applicant);
+            repository.save(prof);
+        } else {
+            throw new RecordNotFoundException("No professor record exist for given id");
+        }
+
     }
 }

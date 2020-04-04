@@ -42,7 +42,16 @@ public class FieldService {
         {
             repository.deleteById(fieldid);
         } else {
-            throw new RecordNotFoundException("No professor record exist for given id");
+            throw new RecordNotFoundException("No Field record exist for given id");
+        }
+    }
+
+    public Field findById(String field) throws RecordNotFoundException {
+        Optional<Field> result = repository.findById(field);
+        if(result.isPresent()){
+            return result.get();
+        }else{
+            throw new RecordNotFoundException("No Field record exist for given id");
         }
     }
 }

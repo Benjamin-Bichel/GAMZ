@@ -3,8 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import Application.App;
 import Application.DataModel.Applicant;
 import Application.DataModel.ApplicantRepo;
+import Application.DataModel.Field;
+import Application.DataModel.Professor;
 import Application.Exception.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +40,19 @@ public class ApplicantService {
         }
     }
 
+    public void setProfessor(Applicant applicant, Professor professor) throws RecordNotFoundException {
+        Optional<Applicant> applicantx = repository.findById(applicant.getId());
+
+        if(applicantx.isPresent())
+        {
+            Applicant applicantx1 = applicantx.get();
+            applicantx1.setProfessorProposed(professor);
+            repository.save(applicantx1);
+        } else {
+            throw new RecordNotFoundException("No professor record exist for given id");
+        }
+    }
+
     public Applicant createOrUpdateApplicant(Applicant applicant)
     {
         if(applicant.getId()  == null)
@@ -58,6 +74,7 @@ public class ApplicantService {
                 newEntity.setInstitute(applicant.getInstitute());
                 newEntity.setResearch(applicant.getResearch());
                 newEntity.setProgram(applicant.getProgram());
+                newEntity.setProfessorProposed(applicant.getProfessorProposed());
                 newEntity.setCGPA(applicant.getCGPA());
 
                 newEntity = repository.save(newEntity);
@@ -82,4 +99,24 @@ public class ApplicantService {
             throw new RecordNotFoundException("No applicant record exist for given id");
         }
     }
+
+
+
+
+
+    public List<Applicant> getApplicantByField(Field field){
+        ArrayList<Applicant> applicantsWithoutProfs = new ArrayList<Applicant>();
+        List<Applicant> result = (List<Applicant>) repository.findAllByResearch(field);
+
+        if(result.size() > 0) {
+            for ( Applicant app: result) {
+                if(app.getProfessorProposed() == null){
+                    applicantsWithoutProfs.add(app);
+                }
+            }
+        }
+        return applicantsWithoutProfs;
+    }
+
+
 }
