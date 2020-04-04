@@ -7,7 +7,8 @@ import java.util.List;
 @Entity
 public class Applicant extends User  {
     private  String address;
-    private String research;
+    @OneToOne
+    private Field research;
     private double CGPA;
     private String program;
     @OneToMany
@@ -39,11 +40,11 @@ public Applicant(){}
     public void setAddress(String address) {
         this.address = address;
     }
-    public String getResearch() {
+    public Field getResearch() {
         return research;
     }
 
-    public void setResearch(String research) {
+    public void setResearch(Field research) {
         this.research = research;
     }
 

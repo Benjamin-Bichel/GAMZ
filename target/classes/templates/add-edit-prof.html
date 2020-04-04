@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 
 <head>
     <style>
@@ -43,11 +43,11 @@
 
 <body>
 <div class="container my-5">
-    <h3>Applicant Profile</h3>
+    <h3>Professor Profile</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form action="#" th:action="@{/createApplicant}" th:object="${applicant}"
+                <form action="#" th:action="@{/createProf}" th:object="${professor}"
                       method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
@@ -59,30 +59,6 @@
                             <label for="email" class="col-form-label">Email</label>
                             <input type="text" th:field="*{email}" class="form-control"
                                    id="email" placeholder="Email" />
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="address" class="col-form-label">Address</label>
-                            <input type="text" th:field="*{address}" class="form-control"
-                                   id="address" placeholder="Address" />
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label class="col-form-label">Research field of interest:</label>
-                            <select th:field="*{research}" class="form-control" id="research">
-                                <option value="">Select Field</option>
-                                <option th:each="fieldx : ${fields}"
-                                        th:value="${fieldx.field}"
-                                        th:text="${fieldx.field}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="program" class="col-form-label">Program</label>
-                            <input type="text" th:field="*{program}" class="form-control"
-                                   id="program" placeholder="Program" />
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="CGPA" class="col-form-label">CGPA</label>
-                            <input type="text" th:field="*{CGPA}" class="form-control"
-                                   id="CGPA" placeholder="CGPA" />
                         </div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value=" Submit ">
