@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en">
+
+
+
+<head>
+    <style>
+        .myButton {
+            background-color: #3498DB;
+            width: 10%;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            cursor: pointer;
+            font-size: 75%;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            cursor: pointer;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h3>Professor Profile</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+
+                    <div>
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Add Prof </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="applicant : ${applicants}">
+                                <td th:text="${applicant.name}"></td>
+                                <td>
+                                    <a th:href="@{/admin/startRelationShip/{id}(id=${applicant.id})}"
+                                       class="btn btn-primary">
+                                        <i class="fas fa-user-times ml-2"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

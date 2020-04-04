@@ -21,10 +21,12 @@ public class Applicant extends User  {
     private List<String> volunteerHistory;
     private String otherInformation;
     private boolean adminApproval;
-    private ProfessorRecommendation recommendation;
+    private int recommendation;
     private boolean finalRecommendation;
+
     @ManyToOne
-    private Project project;
+    private Professor professorProposed;
+    private String professorId;
     private byte[] diploma;
 
 public Applicant(){}
@@ -88,11 +90,11 @@ public Applicant(){}
         this.finalRecommendation = finalRecommendation;
     }
 
-    public ProfessorRecommendation getRecommendation() {
+    public int getRecommendation() {
         return recommendation;
     }
 
-    public void setRecommendation(ProfessorRecommendation recommendation) {
+    public void setRecommendation(int recommendation) {
         this.recommendation = recommendation;
     }
 
@@ -137,4 +139,19 @@ public Applicant(){}
     }
 
 
+    public Professor getProfessorProposed() {
+        return professorProposed;
+    }
+
+    public void setProfessorProposed(Professor professorProposed) {
+        this.professorProposed = professorProposed;
+    }
+
+    public String getProfessorId() {
+        return professorId;
+    }
+
+    public void setProfessorId(String professorId) {
+        this.professorId = professorId;
+    }
 }

@@ -9,18 +9,10 @@ import java.util.List;
 @Entity
 public class Professor extends User {
 
-    @OneToOne
-    private Faculty faculty;
     @OneToMany
-    private List<Project> projectList;
-    @OneToMany
-    private List<Field> seekingFields;
-    @ManyToMany
-    private List<Field> activeFields;
-    @ManyToMany
     private List<Applicant> applicants;
-
-    private String research;
+    @OneToOne
+    private Field research;
 
     @Autowired
     public Professor(){
@@ -31,13 +23,19 @@ public class Professor extends User {
         super(name, email);
     }
 
-
-    public String getResearch() {
+    public Field getResearch() {
         return research;
     }
 
-    public void setResearch(String research) {
+    public void setResearch(Field research) {
         this.research = research;
     }
 
+    public List<Applicant> getApplicants() {
+        return applicants;
+    }
+
+    public void setApplicants(List<Applicant> applicants) {
+        this.applicants = applicants;
+    }
 }

@@ -38,8 +38,10 @@ public class ProfessorController {
     {
         if (id.isPresent()) {
             Professor professor = service.getProfessorById(id.get());
+            model.addAttribute("fields", fieldService.getAllFields());
             model.addAttribute("professor", professor);
         } else {
+            model.addAttribute("fields", fieldService.getAllFields());
             model.addAttribute("professor", new Professor());
         }
         return "add-edit-prof";
