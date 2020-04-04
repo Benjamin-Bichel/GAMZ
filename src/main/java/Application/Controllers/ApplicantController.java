@@ -3,6 +3,7 @@ package Application.Controllers;
 import Application.DataModel.*;
 import Application.Exception.RecordNotFoundException;
 import Application.Services.ApplicantService;
+import Application.Services.FieldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import java.util.Optional;
 public class ApplicantController {
     @Autowired
     private ApplicantService service;
+    @Autowired
+    private FieldService fieldService;
 
     @RequestMapping("/applicant")
     public String getAllApplicants(Model model)
@@ -33,8 +36,10 @@ public class ApplicantController {
     {
         if (id.isPresent()) {
             Applicant applicant = service.getApplicantById(id.get());
+            model.addAttribute("fields", fieldService.getAllFields());
             model.addAttribute("applicant", applicant);
         } else {
+            model.addAttribute("fields", fieldService.getAllFields());
             model.addAttribute("applicant", new Applicant());
         }
         return "add-edit-applicant";
