@@ -32,7 +32,7 @@ public class ProfessorController {
         return "list-profs";
     }
 
-    @RequestMapping(path = {"/editProf", "/editProf/{id}"})
+    @RequestMapping(path = {"/profEdit", "/profEdit/{id}"})
     public String editProfById(Model model, @PathVariable("id") Optional<Long> id)
             throws RecordNotFoundException
     {
@@ -45,7 +45,7 @@ public class ProfessorController {
         return "add-edit-prof";
     }
 
-    @RequestMapping(path = "/deleteProf/{id}")
+    @RequestMapping(path = "/profDelete/{id}")
     public String deleteProfById(Model model, @PathVariable("id") Long id)
             throws RecordNotFoundException
     {
@@ -53,7 +53,7 @@ public class ProfessorController {
         return "redirect:/prof";
     }
 
-    @RequestMapping(path = "/createProf", method = RequestMethod.POST)
+    @RequestMapping(path = "/profCreate", method = RequestMethod.POST)
     public String createOrUpdateProf(Professor professor)
     {
         service.createOrUpdateProf(professor);
@@ -61,19 +61,22 @@ public class ProfessorController {
     }
 
 
-    @RequestMapping(path = "/editField")
+    @RequestMapping(path = "/fieldEdit")
     public String editField(Model model){
         model.addAttribute("field", new Field());
         return "add-edit-Field";
     }
 
-   /* @RequestMapping(path = "/deleteField")
-    public String deleteField(Field field){
+/*@RequestMapping(path = "/fieldDelete")
+    public String deleteField(Field field) {
         fieldService.deleteField(field.getField());
         return "redirect:/prof";
     }*/
 
-    @RequestMapping(path = "/createField", method = RequestMethod.POST)
+
+
+
+    @RequestMapping(path = "/fieldCreate", method = RequestMethod.POST)
     public String createOrUpdateField(Field field){
         fieldService.createField(field);
         return "redirect:/prof";

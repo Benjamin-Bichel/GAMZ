@@ -2,6 +2,7 @@ package Application.DataModel;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table
 public class User {
@@ -10,18 +11,17 @@ public class User {
     private Long id;
     //@NotBlank(message = "Name is mandatory")
     @Column
-    public String name;
-    //@NotBlank(message = "Email is mandatory")
+    private String name;
     @Column
     private String email;
 
     public User(){
     }
 
-    public User(String name, String email) {
-        super();
+    public User(String name, String email){
         this.name = name;
         this.email = email;
+
     }
     public Long getId(){
         return id;
@@ -50,4 +50,6 @@ public class User {
     public String toString() {
         return "{" + "id=" + getId() + ", name=" + name + ", email=" + getEmail() + '}';
     }
+
+
 }

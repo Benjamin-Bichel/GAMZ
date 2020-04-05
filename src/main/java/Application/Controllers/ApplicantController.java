@@ -30,7 +30,7 @@ public class ApplicantController {
         return "list-applicants";
     }
 
-    @RequestMapping(path = {"/editApplicant", "/editApplicant/{id}"})
+    @RequestMapping(path = {"/applicantEdit", "/applicantEdit/{id}"})
     public String editApplicantById(Model model, @PathVariable("id") Optional<Long> id)
             throws RecordNotFoundException
     {
@@ -45,7 +45,7 @@ public class ApplicantController {
         return "add-edit-applicant";
     }
 
-    @RequestMapping(path = "/deleteApplicant/{id}")
+    @RequestMapping(path = "/applicantDelete/{id}")
     public String deleteApplicantById(Model model, @PathVariable("id") Long id)
             throws RecordNotFoundException
     {
@@ -53,7 +53,7 @@ public class ApplicantController {
         return "redirect:/applicant";
     }
 
-    @RequestMapping(path = "/createApplicant", method = RequestMethod.POST)
+    @RequestMapping(path = "/applicantCreate", method = RequestMethod.POST)
     public String createOrUpdateApplicant(Applicant applicant)
     {
         service.createOrUpdateApplicant(applicant);

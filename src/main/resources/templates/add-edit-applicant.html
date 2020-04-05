@@ -35,7 +35,7 @@
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Add Employee</title>
+    <title>Add Applicant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -43,11 +43,10 @@
 
 <body>
 <div class="container my-5">
-    <h3>Applicant Profile</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form action="#" th:action="@{/createApplicant}" th:object="${applicant}"
+                <form action="#" th:action="@{/applicantCreate}" th:object="${applicant}"
                       method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
@@ -64,6 +63,11 @@
                             <label for="address" class="col-form-label">Address</label>
                             <input type="text" th:field="*{address}" class="form-control"
                                    id="address" placeholder="Address" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="institute" class="col-form-label">Institute</label>
+                            <input type="text" th:field="*{institute}" class="form-control"
+                                   id="institute" placeholder="Institute of Undergraduate Studies" />
                         </div>
                         <div class="form-group col-md-8">
                             <label class="col-form-label">Research field of interest:</label>
@@ -97,7 +101,7 @@
         </div>
     </div>
 </div>
-<a class="myButton" href="/"> Return Back to Home Page</a>
+<a class="myButton" href="/home"> Return Back to Home Page</a>
 
 </body>
 

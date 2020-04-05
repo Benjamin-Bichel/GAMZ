@@ -27,10 +27,9 @@ public class Professor extends User {
         super();
     }
 
-    public Professor(String name, String email) {
+    public Professor(String name, String email){
         super(name, email);
     }
-
 
     public String getResearch() {
         return research;

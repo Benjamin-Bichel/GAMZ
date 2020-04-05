@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-@ComponentScan({"Application.Controllers",  "Application.DataModel", "Application.Services"})
+@ComponentScan({"Application.Security", "Application.DataModel", "Application.Controllers", "Application.Services"})
 @EnableJpaRepositories("Application.DataModel")
 @EntityScan("Application/DataModel")
 public class App {

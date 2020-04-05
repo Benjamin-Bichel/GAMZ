@@ -55,6 +55,7 @@ public class ApplicantService {
                 newEntity.setName(applicant.getName());
                 newEntity.setEmail(applicant.getEmail());
                 newEntity.setAddress(applicant.getAddress());
+                newEntity.setInstitute(applicant.getInstitute());
                 newEntity.setResearch(applicant.getResearch());
                 newEntity.setProgram(applicant.getProgram());
                 newEntity.setCGPA(applicant.getCGPA());
