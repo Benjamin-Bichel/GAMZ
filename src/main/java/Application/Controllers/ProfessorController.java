@@ -67,7 +67,7 @@ public class ProfessorController {
     }
 
 
-    @RequestMapping(path = "/fieldEdit")
+    @RequestMapping(path = "/editField")
     public String editField(Model model){
         model.addAttribute("field", new Field());
         return "add-edit-Field";
