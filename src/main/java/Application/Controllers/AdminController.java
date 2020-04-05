@@ -96,7 +96,7 @@ public class AdminController{
         return "admin-applicant-desicion";
     }
 
-    @RequestMapping(path = "/setRecommendations", method = RequestMethod.POST)
+    @RequestMapping(path = "/setFinalDesition", method = RequestMethod.POST)
     public String reviewApplicants(Model model, Applicant applicant) throws RecordNotFoundException {
         System.out.println(applicant);
         /*for (S dto: applicantProfRecomendationDTO.getList()) {

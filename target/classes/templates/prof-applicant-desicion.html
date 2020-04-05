@@ -70,7 +70,7 @@
             <td th:text="${applicant.CGPA}"></td>
             <td>
             <form action="#" th:action="@{/setRecommendation}" method="post" th:object="${applicant}" >
-                <select th:field="*{recommendation}" class="form-control" id="research">
+                <select  class="form-control" id="research">
                     <option value="">Select Field</option>
                     <option value="NOT_RECOMMENDED">NOT_RECOMMENDED</option>
                     <option value="RECOMMEND_NO_SUPERVISION">RECOMMEND_NO_SUPERVISION</option>
