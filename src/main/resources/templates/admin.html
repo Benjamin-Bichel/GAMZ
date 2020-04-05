@@ -40,9 +40,25 @@
 <h3 align="center" >Administrator Home Page</h3>
 
 
-<a class="button" href="/admin/applicantListing">View listing of all Applicants</a>
-<a class="button" href="/admin/profListing">View listing of all Professors</a>
+<a class="button" href="/admin/getApplicants">View listing of all Applicants</a>
+<a class="button" href="/admin/getProfs">View listing of all Professors</a>
+<form action="/admin/getFieldRelationShips/" method="get">
+    <select name="field" class="form-control" id="fieldFilter">
+        <option value="">Select Field</option>
+        <option th:each="fieldx : ${fields}"
+                th:value="${fieldx.field}"
+                th:text="${fieldx.field}"></option>
+    </select>
+    <input type="submit" value="View listing of Applicants Without Professors">
+</form>
+
+<!-- this is inreguard to filtering-->
+<!--<a class="button" href="/admin/getProfs">View listing of all Professors</a>
+<a class="button" href="/admin/getProfs">View listing of all Professors</a>-->
+
 <a class="myButton" href="/home"> Return Back to Home Page</a>
+
+
 
 
 
