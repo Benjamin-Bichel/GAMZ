@@ -11,6 +11,7 @@ public class Applicant extends User  {
     private Field research;
     private double CGPA;
     private String program;
+    private String institute;
     @OneToMany
     private List<Skills> skillsList;
     @OneToOne
@@ -54,6 +55,13 @@ public Applicant(){}
 
     public void setProgram(String program ) {
         this.program = program;
+    }
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute ) {
+        this.institute = institute;
     }
 
     public double getCGPA() {

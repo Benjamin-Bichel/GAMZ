@@ -58,6 +58,7 @@
                                 <th>Name</th>
                                 <th>Email </th>
                                 <th>Address</th>
+                                <th>Institute</th>
                                 <th>Research</th>
                                 <th>Program </th>
                                 <th>CGPA</th>
@@ -70,6 +71,7 @@
                                 <td th:text="${applicant.name}"></td>
                                 <td th:text="${applicant.email}"></td>
                                 <td th:text="${applicant.address}"></td>
+                                <td th:text="${applicant.institute}"></td>
                                 <div th:switch="${applicant.research}">
 
                                     <td th:case="null" th:text="${applicant.research}"></td>
