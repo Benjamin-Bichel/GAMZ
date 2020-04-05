@@ -2,6 +2,7 @@ package Application.Controllers;
 
 import Application.DataModel.*;
 import Application.Exception.RecordNotFoundException;
+import Application.Services.ApplicantService;
 import Application.Services.FieldService;
 import Application.Services.ProfService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +19,8 @@ public class ProfessorController {
 
     @Autowired
     ProfService service;
+    @Autowired
+    ApplicantService applicantService;
     @Autowired
     FieldService fieldService;
     @Autowired
@@ -81,6 +85,30 @@ public class ProfessorController {
     @RequestMapping(path = "/fieldCreate", method = RequestMethod.POST)
     public String createOrUpdateField(Field field){
         fieldService.createField(field);
+        return "redirect:/prof";
+    }
+
+    @RequestMapping(path = "/reviewApplicants")
+    public String reviewApplicants(Model model, @RequestParam(value = "id", required = false) String id) throws RecordNotFoundException {
+        if(!id.isEmpty()){
+            Professor professor = service.getProfessorById(Long.parseLong(id));
+            List<Applicant> listApps = (ArrayList<Applicant>)applicantService.getApplicantsByProfessor(professor);
+            System.out.println(listApps.size());
+            model.addAttribute("applicants",listApps);
+            model.addAttribute("recommendations", new ApplicantProfRecomendationDTO());
+            model.addAttribute("profid", id);
+        }
+        return "prof-applicant-desicion";
+    }
+
+    @RequestMapping(path = "/setRecommendations", method = RequestMethod.POST)
+    public String reviewApplicants(Model model, Applicant applicant) throws RecordNotFoundException {
+        System.out.println(applicant);
+        /*for (S dto: applicantProfRecomendationDTO.getList()) {
+            Applicant applicant = applicantService.getApplicantById(Long.parseLong(dto.getApplicantid()));
+            applicantService.setRecommendation(applicant, Integer.parseInt(dto.getProfRecomendationindex()));
+        }*/
+
         return "redirect:/prof";
     }
 

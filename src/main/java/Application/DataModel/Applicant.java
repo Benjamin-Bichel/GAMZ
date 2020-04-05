@@ -22,7 +22,7 @@ public class Applicant extends User  {
     private List<String> volunteerHistory;
     private String otherInformation;
     private boolean adminApproval;
-    private int recommendation;
+    private String recommendation;
     private boolean finalRecommendation;
 
     @ManyToOne
@@ -98,11 +98,11 @@ public Applicant(){}
         this.finalRecommendation = finalRecommendation;
     }
 
-    public int getRecommendation() {
+    public String getRecommendation() {
         return recommendation;
     }
 
-    public void setRecommendation(int recommendation) {
+    public void setRecommendation(String recommendation) {
         this.recommendation = recommendation;
     }
 

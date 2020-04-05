@@ -54,6 +54,20 @@ public class ApplicantService {
         }
     }
 
+    public Applicant setRecommendation(Applicant applicant, int recommendationvalue) throws RecordNotFoundException {
+        Optional<Applicant> applicantx = repository.findById(applicant.getId());
+
+        if(applicantx.isPresent())
+        {
+            Applicant applicantx1 = applicantx.get();
+            applicantx1.setRecommendation("" + recommendationvalue);
+            repository.save(applicantx1);
+            return  applicantx1;
+        } else {
+            throw new RecordNotFoundException("No professor record exist for given id");
+        }
+    }
+
     public Applicant createOrUpdateApplicant(Applicant applicant)
     {
         if(applicant.getId()  == null)
@@ -117,6 +131,44 @@ public class ApplicantService {
             }
         }
         return applicantsWithoutProfs;
+    }
+
+    public List<Applicant> getApplicantsByProfessor(Professor professor){
+        ArrayList<Applicant> applicantsWithoutRecommendations = new ArrayList<Applicant>();
+        List<Applicant> result = (List<Applicant>) repository.findAll();
+
+        if(result.size() > 0){
+            for (Applicant app: result) {
+                if(app.getRecommendation() == null){
+
+
+                        applicantsWithoutRecommendations.add(app);
+
+                }else if(app.getRecommendation().isEmpty()){
+                    applicantsWithoutRecommendations.add(app);
+                }
+            }
+        }
+        return applicantsWithoutRecommendations;
+    }
+
+    public List<Applicant> getApplicantsWithRecomendations(Professor professor){
+        ArrayList<Applicant> applicantsWithRecommendations = new ArrayList<Applicant>();
+        List<Applicant> result = (List<Applicant>) repository.findAll();
+
+        if(result.size() > 0){
+            for (Applicant app: result) {
+                if(app.getRecommendation() != null){
+                    if(!app.getRecommendation().isEmpty() ){
+                        applicantsWithRecommendations.add(app);
+                    }
+
+
+
+                }
+            }
+        }
+        return applicantsWithRecommendations;
     }
 
 
