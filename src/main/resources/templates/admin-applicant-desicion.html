@@ -71,7 +71,7 @@
             <td th:text="${applicant.CGPA}"></td>
             <td th:text="${applicant.recommendation}"></td>
             <td>
-                <form action="#" th:action="@{/setFinalDecision}" method="post" th:object="${applicant}" >
+                <form action="#" th:action="@{/setRecommendation}" method="post" th:object="${applicant}" >
                     <select  class="form-control" id="research">
                         <option value="">Select Field</option>
                         <option value="True">Accepted</option>

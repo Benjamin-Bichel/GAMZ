@@ -98,9 +98,7 @@ public class AdminController{
     }
 
 
-
-    @RequestMapping(path = "/setFinalDecision", method = RequestMethod.POST)
-
+    @RequestMapping(path = "/setFinalDisition", method = RequestMethod.POST)
 
     public String reviewApplicants(Model model, Applicant applicant) throws RecordNotFoundException {
         System.out.println(applicant);
