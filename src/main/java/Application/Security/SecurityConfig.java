@@ -18,13 +18,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/home").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/prof/**").hasRole("PROF")
-                .antMatchers("/applicant").hasRole("APPLICANT")
+                .antMatchers("/prof/**").hasAnyRole("PROF", "ADMIN")
+                .antMatchers("/applicant/**").hasAnyRole("APPLICANT", "ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/home")
                 .and()
                 .logout()
                 .permitAll();
@@ -34,15 +35,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("applicant")
-                .password("password")
+                .password("applicantpass")
                 .roles("APPLICANT")
                 .and()
                 .withUser("admin")
-                .password("password")
+                .password("adminpass")
                 .roles("ADMIN")
                 .and()
                 .withUser("prof")
-                .password("password")
+                .password("profpass")
                 .roles("PROF");
     }
     @Bean
