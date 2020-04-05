@@ -40,14 +40,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <h2 align="center" > Graduate Application Form</h2>
-<h3 align="center" >Applicant Home Page</h3>
 <body>
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
             <div th:switch="${applicants}" class="container my-5">
                 <p class="my-5">
-                    <a href="/editApplicant" class="btn btn-primary">
+                    <a href="/applicantEdit" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Submit New Applicant </i></a>
                 </p>
                 <div class="col-md-10">
@@ -80,13 +79,13 @@
                                 <td th:text="${applicant.CGPA}"></td>
 
                                 <td>
-                                    <a th:href="@{/editApplicant/{id}(id=${applicant.id})}"
+                                    <a th:href="@{/applicantEdit/{id}(id=${applicant.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/deleteApplicant/{id}(id=${applicant.id})}"
+                                    <a th:href="@{/applicantDelete/{id}(id=${applicant.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-times ml-2"></i>
                                     </a>

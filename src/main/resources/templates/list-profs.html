@@ -59,12 +59,12 @@
         <div class="card-body">
             <div th:switch="${professors}" class="container my-5" >
                 <p class="my-5">
-                    <a href="/editProf" class="btn btn-primary">
+                    <a href="/profEdit" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Submit New Professor Profile </i></a>
                 </p>
                 <!---button for creating feilds -->
               <p class="my-5">
-                    <a href="/editField" class="btn btn-primary">
+                    <a href="/fieldEdit" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Submit New Field </i>
                     </a>
                 </p>
@@ -77,6 +77,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email </th>
+                                <th>Research </th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -86,13 +87,13 @@
                                 <td th:text="${professor.name}"></td>
                                 <td th:text="${professor.email}"></td>
                                 <td>
-                                    <a th:href="@{/editProf/{id}(id=${professor.id})}"
+                                    <a th:href="@{/profEdit/{id}(id=${professor.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/deleteProf/{id}(id=${professor.id})}"
+                                    <a th:href="@{/profDelete/{id}(id=${professor.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-times ml-2"></i>
                                     </a>

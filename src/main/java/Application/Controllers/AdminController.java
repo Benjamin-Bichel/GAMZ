@@ -12,7 +12,9 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController{
+public class
+
+AdminController{
     @Autowired
     private ProfRepo profreposiroty;
     @Autowired
@@ -26,7 +28,7 @@ public class AdminController{
         return "admin";
     }
 
-    @GetMapping(path="/getProfs")
+    @GetMapping(path="/profListing")
     public String getAllProfessors(Model model) {
         List<Professor> list = profService.getAllProfs();
         model.addAttribute("professors", list);
@@ -34,7 +36,7 @@ public class AdminController{
     }
 
 
-    @GetMapping(path="/getApplicants")
+    @GetMapping(path="/applicantListing")
     public String getAllApplicants(Model model) {
         List<Applicant> list = applicantService.getAllApplicants();
         model.addAttribute("applicants", list);

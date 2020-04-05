@@ -42,11 +42,10 @@
 </head>
 <body>
 <div class="container my-5">
-    <h3>Professor Profile</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form action="#" th:action="@{/createField}" th:object="${field}" method="post">
+                <form action="#" th:action="@{/fieldCreate}" th:object="${field}" method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
                             <label for="field" class="col-form-label">Field</label>
