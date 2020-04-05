@@ -51,7 +51,7 @@
 </head>
 <body>
 
-    <div>
+<div>
     <table class="table table-striped table-responsive-md">
         <thead>
         <tr>
@@ -60,6 +60,7 @@
             <th>Field of Reasurch</th>
             <th>CGPA</th>
             <th>Recommendation</th>
+            <th>Acceptance</th>
         </tr>
         </thead>
         <tbody>
@@ -68,22 +69,21 @@
             <td th:text="${applicant.program}"></td>
             <td th:text="${applicant.research}"></td>
             <td th:text="${applicant.CGPA}"></td>
+            <td th:text="${applicant.recommendation}"></td>
             <td>
-            <form action="#" th:action="@{/setRecommendation}" method="post" th:object="${applicant}" >
-                <select  class="form-control" id="research">
-                    <option value="">Select Field</option>
-                    <option value="NOT_RECOMMENDED">NOT_RECOMMENDED</option>
-                    <option value="RECOMMEND_NO_SUPERVISION">RECOMMEND_NO_SUPERVISION</option>
-                    <option value="RECOMMEND_NO_FUND">RECOMMEND_NO_FUND</option>
-                    <option value="RECOMMEND_FUND">RECOMMEND_FUND</option>
-                </select>
-                <input type="submit" class="btn btn-primary" value="Submit">
-            </form>
+                <form action="#" th:action="@{/setRecommendation}" method="post" th:object="${applicant}" >
+                    <select th:field="${applicant.recommendation}" class="form-control" id="research">
+                        <option value="">Select Field</option>
+                        <option value="True">Accepted</option>
+                        <option value="False">Rejected</option>
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
             </td>
         </tr>
         </tbody>
     </table>
-    </div>
+</div>
 
 <a class="myButton" href="/"> Return Back to Home Page</a>
 </body>

@@ -72,7 +72,7 @@
             <td th:text="${applicant.recommendation}"></td>
             <td>
                 <form action="#" th:action="@{/setRecommendation}" method="post" th:object="${applicant}" >
-                    <select th:field="*{recommendation}" class="form-control" id="research">
+                    <select  class="form-control" id="research">
                         <option value="">Select Field</option>
                         <option value="True">Accepted</option>
                         <option value="False">Rejected</option>
