@@ -50,9 +50,11 @@ public class AdminController{
     @RequestMapping("/admin/getFieldRelationShips/")
     public String getFilteringViaFields(Model model, @RequestParam(value = "field", required = false) String field) throws RecordNotFoundException {
 
-        Field field1 = fieldService.findById(field);
-        ArrayList<Applicant> list = (ArrayList<Applicant>)applicantService.getApplicantByField(field1);
-        model.addAttribute("applicants", list);
+        if(field != null){
+            Field field1 = fieldService.findById(field);
+            ArrayList<Applicant> list = (ArrayList<Applicant>)applicantService.getApplicantByField(field1);
+            model.addAttribute("applicants", list);
+        }
 
         return "set-prof-applicant-relationship";
     }
@@ -79,8 +81,30 @@ public class AdminController{
                 profService.addApplicant(applicant, prof);
             }
 
-
         return "redirect:/admin/getFieldRelationShips/?field=" + applicant.getResearch().getField();
+    }
+
+    @RequestMapping(path = "/reviewApplicantsAdmin")
+    public String reviewApplicants(Model model, @RequestParam(value = "id", required = false) String id) throws RecordNotFoundException {
+
+        if(!id.isEmpty()) {
+            Professor professor = profService.getProfessorById(Long.parseLong(id));
+            List<Applicant> listApps = (ArrayList<Applicant>) applicantService.getApplicantsWithRecomendations(professor);
+            System.out.println(listApps.size());
+            model.addAttribute("applicants", listApps);
+        }
+        return "admin-applicant-desicion";
+    }
+
+    @RequestMapping(path = "/setRecommendations", method = RequestMethod.POST)
+    public String reviewApplicants(Model model, Applicant applicant) throws RecordNotFoundException {
+        System.out.println(applicant);
+        /*for (S dto: applicantProfRecomendationDTO.getList()) {
+            Applicant applicant = applicantService.getApplicantById(Long.parseLong(dto.getApplicantid()));
+            applicantService.setRecommendation(applicant, Integer.parseInt(dto.getProfRecomendationindex()));
+        }*/
+
+        return "redirect:/admin";
     }
 
 }
