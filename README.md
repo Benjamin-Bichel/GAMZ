@@ -11,25 +11,33 @@ GAMZ is graduate admission management system web application. Students are able 
 ### Group Leftovers1 -  Members:
 
 - Benjamin Bichel - 100998411
-- Thomas Carriere - 100947281
 - Fatima Hashi - 101041794
 
 
 ### Milestone 3 - Final Prototype:
 ------------------------------
-- Able to select a role: Admin/Applicant/Professor
-- Applicant is able to submit a profile(s) and view their submitted profile
-- Professor is able to submit a profile(s) and view their submitted profile
-- Administrator is able to view all submitted profiles
-- Administrator is able to submit fields
-- Administrator can send Applicant profile to Prof (not fully implemented)
-
+- Login as a "prof", "applicant" or "admin" via autheticated roles
+- IMPORTANT: see Instructions below to get username/password combo
+- Applicant is able to submit a profile(s) and view, edit or delete their submitted profile
+- Professor is able to submit a profile(s) and view, edit or delete  their submitted profile
+- Professor is able to add fields
+- Professor is able to filter and view based on applicants
+- Administrator is able to view all submitted profiles by the Professor and Applicant
+- Administrator can add, edit or delete both Professor and Applicant profiles
+- Administrator can filter via fields and view listing of applicants
 
 Instructions
 -----------------------------
 1. Run App.java class under the package "Application" 
 2. Open a new browser and type http://localhost:8080/
-3. You will be redirected to a Login page, select role of your choosing
+3. You will be redirected to a login page
+4. Enter username as "admin" , "applicant" or "prof"
+5. Enter password encoded passwords, "adminpass", "applicantpass", and "profpass" respectiveley
+6. Select a role from to dropdown
+
+At this point, you are logged into the system.
+
+To logout at any time, select the "Return to Hompage" button, then hit the "Logout" button
 
 
 ## Diagrams
